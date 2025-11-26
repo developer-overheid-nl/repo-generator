@@ -1,0 +1,10 @@
+{
+  "title": "DON API v1",
+  "description": "API of developer.overheid.nl (Developer Overheid).",
+  "contacts": [{
+    "name": "Team Developer Overheid",
+    "email": "developer.overheid@geonovum.nl",
+    "url": "https://developer.overheid.nl"
+  }],
+  "securityEmail":"security@example.nl"
+}
