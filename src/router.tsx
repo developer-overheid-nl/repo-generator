@@ -1,15 +1,17 @@
 import { createHashRouter, Navigate } from 'react-router-dom';
 import App from './App';
-import specs from './specs';
+import templateRoutes from './templates';
+
+import genSpec from './specs/gen/spec';
 
 const router = createHashRouter([
   {
     path: '/',
-    element: <Navigate to={`/${specs[0].slug}`} />,
+    element: <Navigate to={`/${templateRoutes[0]}`} />,
   },
-  ...specs.map(spec => ({
-    path: `/${spec.slug}`,
-    element: <App spec={spec} />,
+  ...templateRoutes.map(templateSlug => ({
+    path: `/${templateSlug}`,
+    element: <App spec={genSpec} />,
   })),
 ]);
 
