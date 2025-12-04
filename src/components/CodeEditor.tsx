@@ -21,7 +21,7 @@ interface Props {
 }
 
 const CodeEditor: FC<Props> = ({ spec, gitTemplate }) => {
-  const [content, setContent] = useState('{}');
+  const [inputJson, setInputJson] = useState('{}');
   const [output, setOutput] = useState('{}');
   const [checking, setChecking] = useState(false);
   const [error] = useState<string>();
@@ -50,23 +50,23 @@ const CodeEditor: FC<Props> = ({ spec, gitTemplate }) => {
   };
 
   useEffect(() => {
-    setContent(spec.example);
+    setInputJson(spec.example);
     setLinters(spec.linters);
   }, [spec]);
 
   useEffect(() => {
     if (gitTemplate) {  
-      const result = parseOutput(content, gitTemplate);
+      const result = parseOutput(inputJson, gitTemplate);
       setOutput(result);
     }
-  }, [gitTemplate, content]);
+  }, [gitTemplate, inputJson]);
 
   return (
     <div className="flex h-full">
       <div className="w-[50%] min-w-[400px] overflow-auto">
         <ReactCodeMirror
           ref={codeMirrorRef}
-          value={content}
+          value={inputJson}
           extensions={[...INPUT_EDITOR_EXTENSIONS, ...linters.map(l => l.linter), EditorView.lineWrapping]}
           onUpdate={viewUpdate => {
             if (error) {
@@ -85,8 +85,8 @@ const CodeEditor: FC<Props> = ({ spec, gitTemplate }) => {
             });
 
             if (viewUpdate.docChanged) {
-              setContent(viewUpdate.state.doc.toString());
-              // setOutput(populateOpenApiSpec(viewUpdate.state.doc.toString()));
+              setInputJson(viewUpdate.state.doc.toString());
+
               setChecking(true);
             }
           }}
