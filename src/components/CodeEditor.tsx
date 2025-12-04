@@ -1,14 +1,18 @@
 import { json, jsonParseLinter } from '@codemirror/lang-json';
+import {yaml} from "@codemirror/lang-yaml"
+import { markdown } from '@codemirror/lang-markdown';
 import { Diagnostic, forEachDiagnostic, linter, lintGutter, setDiagnosticsEffect } from '@codemirror/lint';
 import { EditorView } from '@codemirror/view';
 import ReactCodeMirror, { EditorSelection, Extension, ReactCodeMirrorRef } from '@uiw/react-codemirror';
 import clsx from 'clsx';
-import { FC, useEffect, useRef, useState } from 'react';
+import { FC, useEffect, useMemo, useRef, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Spec, SpecLinter } from '../types';
 import { groupBySource } from '../util';
 import parseOutput from '../populateOutputFile';
 
-const EXTENSIONS: Extension[] = [json(), linter(jsonParseLinter()), lintGutter()];
+
+const INPUT_EDITOR_EXTENSIONS: Extension[] = [json(), linter(jsonParseLinter()), lintGutter()];
 
 interface Props {
   spec: Spec;
@@ -25,6 +29,15 @@ const CodeEditor: FC<Props> = ({ spec, gitTemplate }) => {
   const [diagnostics, setDiagnostics] = useState<{ [key: string]: Diagnostic[] }>({});
   const [copied, setCopied] = useState(false);
   const codeMirrorRef = useRef<ReactCodeMirrorRef>(null);
+
+  const location = useLocation();
+
+  const outputExtensions = useMemo(() => {
+    if (location.pathname?.endsWith('.yml') || location.pathname?.endsWith('.yaml')) {
+      return [yaml()];
+    }
+    return [markdown()];
+  }, [location]);
 
   const handleCopy = async () => {
     try {
@@ -54,7 +67,7 @@ const CodeEditor: FC<Props> = ({ spec, gitTemplate }) => {
         <ReactCodeMirror
           ref={codeMirrorRef}
           value={content}
-          extensions={[...EXTENSIONS, ...linters.map(l => l.linter), EditorView.lineWrapping]}
+          extensions={[...INPUT_EDITOR_EXTENSIONS, ...linters.map(l => l.linter), EditorView.lineWrapping]}
           onUpdate={viewUpdate => {
             if (error) {
               return;
@@ -88,7 +101,7 @@ const CodeEditor: FC<Props> = ({ spec, gitTemplate }) => {
             <div key={linter.name}>
               {!diagnostics[linter.name] ? (
                 <div className="relative">
-                  <ReactCodeMirror ref={codeMirrorRef} value={output} extensions={[...EXTENSIONS]} readOnly={true} />
+                  <ReactCodeMirror ref={codeMirrorRef} value={output} extensions={outputExtensions} readOnly={true} className='' />
                   <button onClick={handleCopy} className="fixed top-14 right-2 text-x">{copied ? '✓ Gekopieërd!' : 'Kopiëren'}</button>
                 </div>
               ) : (
