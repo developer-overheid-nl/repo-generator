@@ -7,27 +7,64 @@
       "type": "string"
     },
     "projectBeschrijving": {
-      "type":"string"
+      "type": "string"
+    },
+    "developmentStatus": {
+      "enum": ["concept", "development", "beta", "stable", "obsolete"]
     },
     "contacten": {
-      "type":"array"
+      "type": "array"
     },
     "opdrachtgever": {
-      "type":"string"
-    },
-    "securityEmail":{
-      "type":"string"
-    },
-    "issueLink":{
       "type": "string"
     },
-    "gitUrl":{
+    "securityEmail": {
       "type": "string"
+    },
+    "issueLink": {
+      "type": "string"
+    },
+    "gitUrl": {
+      "type": "string"
+    },
+    "softwareType": {
+      "enum": [
+        "standalone/mobile",
+        "standalone/iot",
+        "standalone/desktop",
+        "standalone/web",
+        "standalone/backend",
+        "standalone/other",
+        "addon",
+        "library",
+        "configurationFiles"
+      ]
+    },
+    "landingURL": {
+      "type": "string"
+    },
+    "platforms": {
+      "description": "This key specifies which platform the software runs on. It is meant to describe the platforms that users will use to access and operate the software, rather than the platform the software itself runs on.",
+      "type":"array",
+       "enum": ["web", "windows", "mac", "linux", "ios", "android"]
+    },
+    "features": {
+      "type": "array"
     }
   },
   "additionalProperties": true,
   "required": [
-    "projectTitel","projectBeschrijving","contacten","opdrachtgever","securityEmail","issueLink","gitUrl"
+    "projectTitel",
+    "korteBeschrijving",
+    "langeBeschrijving",
+    "developmentStatus",
+    "contacten",
+    "opdrachtgever",
+    "securityEmail",
+    "issueLink",
+    "gitUrl",
+    "softwareType",
+    "platforms"
   ],
   "type": "object"
 }

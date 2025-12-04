@@ -1,5 +1,6 @@
 import { json, jsonParseLinter } from '@codemirror/lang-json';
 import { Diagnostic, forEachDiagnostic, linter, lintGutter, setDiagnosticsEffect } from '@codemirror/lint';
+import { EditorView } from '@codemirror/view';
 import ReactCodeMirror, { EditorSelection, Extension, ReactCodeMirrorRef } from '@uiw/react-codemirror';
 import clsx from 'clsx';
 import { FC, useEffect, useRef, useState } from 'react';
@@ -56,7 +57,7 @@ const CodeEditor: FC<Props> = ({ spec, uri, gitTemplate }) => {
         <ReactCodeMirror
           ref={codeMirrorRef}
           value={content}
-          extensions={[...EXTENSIONS, ...linters.map(l => l.linter)]}
+          extensions={[...EXTENSIONS, ...linters.map(l => l.linter), EditorView.lineWrapping]}
           onUpdate={viewUpdate => {
             if (error) {
               return;
@@ -81,8 +82,8 @@ const CodeEditor: FC<Props> = ({ spec, uri, gitTemplate }) => {
           }}
         />
       </div>
-      <div className="w-[50%] min-w-[400px] overflow-auto">
-        {checking && <p>        <div className="error-container m-2">Genereren...</div></p>}
+      <div className="w-[50%] min-w-[400px] max-w-[50%] overflow-auto">
+        {checking && <p><div className="error-container m-2">Genereren...</div></p>}
         {!checking && error && <div className="mb-4 p-4 bg-red-500 text-white rounded-sm shadow-lg">{error}</div>}
         {!checking &&
           !error &&
@@ -91,7 +92,7 @@ const CodeEditor: FC<Props> = ({ spec, uri, gitTemplate }) => {
               {!diagnostics[linter.name] ? (
                 <div className="relative">
                   <ReactCodeMirror ref={codeMirrorRef} value={output} extensions={[...EXTENSIONS]} readOnly={true} />
-                  <Button appearance="primary-action-button" onClick={handleCopy} className="fixed top-14 right-6">{copied ? '✓ Gekopieërd!' : 'Kopiëren'}</Button>
+                  <Button appearance="primary-action-button" onClick={handleCopy} className="fixed top-14 right-2 text-x">{copied ? '✓ Gekopieërd!' : 'Kopiëren'}</Button>
                 </div>
               ) : (
                 <>
