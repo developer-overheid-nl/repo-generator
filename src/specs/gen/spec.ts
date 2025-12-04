@@ -63,10 +63,10 @@ const spec: Spec = {
   name: 'Genrator',
   slug: 'gen',
   example: JSON.stringify(example, undefined, 2),
-  linters: Object.entries(rulesets).map(entry => ({
+  linters: [{
     name: linterName,
     linter: ajvLinter(linterName),
-  })),
+  }],
   responseMapper,
 };
 

@@ -10,7 +10,24 @@
       "type": "string"
     },
     "developmentStatus": {
-      "enum": ["concept", "development", "beta", "stable", "obsolete"]
+      "enum": [
+        "concept",
+        "development",
+        "beta",
+        "stable",
+        "obsolete"
+      ]
+    },
+    "onderhoud": {
+      "string": {
+        "description": "This key describes how the software is currently maintained.",
+        "enum": [
+          "internal",
+          "contract",
+          "community",
+          "none"
+        ]
+      }
     },
     "contacten": {
       "type": "array"
@@ -45,8 +62,15 @@
     },
     "platforms": {
       "description": "This key specifies which platform the software runs on. It is meant to describe the platforms that users will use to access and operate the software, rather than the platform the software itself runs on.",
-      "type":"array",
-       "enum": ["web", "windows", "mac", "linux", "ios", "android"]
+      "type": "array",
+      "enum": [
+        "web",
+        "windows",
+        "mac",
+        "linux",
+        "ios",
+        "android"
+      ]
     },
     "features": {
       "type": "array"
@@ -64,7 +88,8 @@
     "issueLink",
     "gitUrl",
     "softwareType",
-    "platforms"
+    "platforms",
+    "features"
   ],
   "type": "object"
 }

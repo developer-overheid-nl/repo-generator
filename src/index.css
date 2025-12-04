@@ -31,7 +31,11 @@
   }
 
   button {
-    @apply px-2 py-1 rounded-md bg-blue-500;
+    @apply px-2 py-1 rounded-md;
+    background-color: rgb(21, 66, 115);
+    color: white;
+    padding: .5rem 1rem;
+    cursor: pointer;
   }
 }
 

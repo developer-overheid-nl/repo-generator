@@ -40,7 +40,7 @@ const App: FC<Props> = ({ spec }) => {
         </div>
       </header>
       <div className="flex-1 overflow-hidden">
-        <CodeEditor spec={spec} uri={undefined} gitTemplate={gitTemplate} />
+        <CodeEditor spec={spec} gitTemplate={gitTemplate} />
       </div>
     </div>
   );

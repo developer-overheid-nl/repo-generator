@@ -1,11 +1,10 @@
 import { linter } from '@codemirror/lint';
 import { Document, RulesetDefinition, Spectral } from '@stoplight/spectral-core';
 import { Json } from '@stoplight/spectral-parsers';
-import { DiagnosticSeverity, LogLevel } from '@stoplight/types';
+import { DiagnosticSeverity } from '@stoplight/types';
 import { Extension } from '@uiw/react-codemirror';
 import Ajv from 'ajv';
 import addFormats from 'ajv-formats';
-import betterAjvErrors from '@stoplight/better-ajv-errors';
 import { Severity } from './types';
 import parametersSchema from '../input_json_schema.json';
 
@@ -32,17 +31,6 @@ const mapSeverity = (severity: DiagnosticSeverity): Severity => {
       return 'error';
   }
 };
-
-const jsonSchema = {
-  type: "object",
-  properties: {
-    foo: {type: "integer"},
-    bar: {type: "string"}
-  },
-  required: ["foo"],
-  additionalProperties: false
-}
-
 
 export const spectralLinter = (name: string, ruleset: RulesetDefinition): Extension => {
   const spectral = new Spectral();

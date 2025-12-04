@@ -1,19 +1,31 @@
 {
-  "projectTitel": "DON API v1",
-  "korteBeschrijving": "Developer Overheid NL is de wegwijzer voor developers die voor of bij de overheid ontwikkelen.",
-  "langeBeschrijving": "Developer Overheid NL is de wegwijzer voor developers die voor of bij de overheid ontwikkelen. Zij vervult deze rol door het aanbieden van standaarden, best practices en tools.",
-  "developmentStatus":"beta",
+  "projectTitel": "Open Zaak",
+  "korteBeschrijving": "API's voor Zaakgericht werken",
+  "langeBeschrijving": "Open Zaak is een moderne, open source gegevens- en services-laag om zaakgericht werken te ondersteunen zoals voorgesteld in de onderste 2 lagen van het Common Ground 5-lagen model.",
+  "developmentStatus":"stable",
+  "onderhoud":"contract",
   "contacten": [{
-    "name": "Aaron Swartz",
-    "email": "me@aaronsw.com",
-    "url": "aaronsw.com"
+    "name": "Jaap de Vries",
+    "email": "j.devries@utrecht.nl",
+    "affiliation": "Gemeente Utrecht",
+    "phone": "+31623456789"
+  },{
+    "name": "Gerrit Rietveld",
+    "email": "g.rietveld@amsterdam.nl",
+    "affiliation": "Gemeente Amsterdam",
+    "phone": "+31623456789"
+  },{
+    "name": "Dirk Teur",
+    "email": "info@thetechies.nl",
+    "affiliation": "Internetbureau The Techies",
+    "phone": "+31623456789"
   }],
-  "opdrachtgever":"Developer.overheid.nl",
-  "securityEmail":"security@developer.overheid.nl",
-  "issueLink":"https://github.com/developer-overheid-nl/repo-generator/issues/new",
-  "gitUrl":"https://github.com/developer-overheid-nl/don-site.git",
-  "landingURL":"https://developer.overheid.nl",
+  "opdrachtgever":"Dimpact",
+  "securityEmail":"security@dimpact.nl",
+  "issueLink":"https://github.com/openzaak/front-end/issues/new",
+  "gitUrl":"https://github.com/openzaak/front-end.git",
+  "landingURL":"https://openzaak.org/",
   "softwareType": "standalone/web",
   "platforms":["web"],
-  "features":["Kennisbank"]
+  "features":["Zaken API 1.4","Documenten API 1.3","Catalogi API 1.2","Besluiten API 1.1","Autorisaties API 1.0","Catalogi beheer","Autorisatie beheer"]
 }

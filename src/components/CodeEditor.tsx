@@ -4,12 +4,9 @@ import { EditorView } from '@codemirror/view';
 import ReactCodeMirror, { EditorSelection, Extension, ReactCodeMirrorRef } from '@uiw/react-codemirror';
 import clsx from 'clsx';
 import { FC, useEffect, useRef, useState } from 'react';
-import { Spec, SpecInput, SpecLinter } from '../types';
-import { formatDocument, groupBySource, handleResponse } from '../util';
-import { populateOpenApiSpec } from '../populateOas';
-import parseOutput, { fetchParsedOutput } from '../populateOutputFile';
-
-import { Button } from '@rijkshuisstijl-community/components-react'; // React-component importeren
+import { Spec, SpecLinter } from '../types';
+import { groupBySource } from '../util';
+import parseOutput from '../populateOutputFile';
 
 const EXTENSIONS: Extension[] = [json(), linter(jsonParseLinter()), lintGutter()];
 
@@ -19,11 +16,11 @@ interface Props {
   gitTemplate: string | null;
 }
 
-const CodeEditor: FC<Props> = ({ spec, uri, gitTemplate }) => {
+const CodeEditor: FC<Props> = ({ spec, gitTemplate }) => {
   const [content, setContent] = useState('{}');
   const [output, setOutput] = useState('{}');
   const [checking, setChecking] = useState(false);
-  const [error, setError] = useState<string>();
+  const [error] = useState<string>();
   const [linters, setLinters] = useState<SpecLinter[]>([]);
   const [diagnostics, setDiagnostics] = useState<{ [key: string]: Diagnostic[] }>({});
   const [copied, setCopied] = useState(false);
@@ -92,7 +89,7 @@ const CodeEditor: FC<Props> = ({ spec, uri, gitTemplate }) => {
               {!diagnostics[linter.name] ? (
                 <div className="relative">
                   <ReactCodeMirror ref={codeMirrorRef} value={output} extensions={[...EXTENSIONS]} readOnly={true} />
-                  <Button appearance="primary-action-button" onClick={handleCopy} className="fixed top-14 right-2 text-x">{copied ? '✓ Gekopieërd!' : 'Kopiëren'}</Button>
+                  <button onClick={handleCopy} className="fixed top-14 right-2 text-x">{copied ? '✓ Gekopieërd!' : 'Kopiëren'}</button>
                 </div>
               ) : (
                 <>
