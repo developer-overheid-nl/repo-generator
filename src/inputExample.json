@@ -1,31 +1,37 @@
 {
-  "projectTitel": "Open Zaak",
-  "korteBeschrijving": "API's voor Zaakgericht werken",
-  "langeBeschrijving": "Open Zaak is een moderne, open source gegevens- en services-laag om zaakgericht werken te ondersteunen zoals voorgesteld in de onderste 2 lagen van het Common Ground 5-lagen model.",
-  "developmentStatus":"stable",
-  "onderhoud":"contract",
-  "contacten": [{
-    "name": "Jaap de Vries",
-    "email": "j.devries@utrecht.nl",
-    "affiliation": "Gemeente Utrecht",
-    "phone": "+31623456789"
-  },{
-    "name": "Gerrit Rietveld",
-    "email": "g.rietveld@amsterdam.nl",
-    "affiliation": "Gemeente Amsterdam",
-    "phone": "+31623456789"
-  },{
-    "name": "Dirk Teur",
-    "email": "info@thetechies.nl",
-    "affiliation": "Internetbureau The Techies",
-    "phone": "+31623456789"
-  }],
-  "opdrachtgever":"Dimpact",
-  "securityEmail":"security@dimpact.nl",
-  "issueLink":"https://github.com/openzaak/front-end/issues/new",
-  "gitUrl":"https://github.com/openzaak/front-end.git",
-  "landingURL":"https://openzaak.org/",
+  "name": "Website developer.overheid.nl",
+  "shortDescription": "Developer Overheid NL is de wegwijzer voor developers die voor of bij de overheid ontwikkelen.",
+  "longDescription": "Developer Overheid NL is de wegwijzer voor developers die voor of bij de overheid ontwikkelen. Zij vervult deze rol door het aanbieden van standaarden, best practices en tools.",
+  "developmentStatus": "beta",
+  "maintenance": "internal",
+  "contacts": [
+    {
+      "name": "Dimitri van Hees",
+      "email": "d.vanhees@geonovum.nl",
+      "affiliation": "Geonovum"
+    },
+    {
+      "name": "Tom Ootes",
+      "email": "t.ootes@geonovum.nl",
+      "affiliation": "Geonovum"
+    }
+  ],
+  "mainCopyrightOwner": "Geonovum",
+  "securityEmail": "developer.overheid@geonovum.nl",
+  "issueLink": "https://github.com/developer-overheid-nl/don-site/issues/new",
+  "url": "https://github.com/developer-overheid-nl/don-site.git",
+  "landingURL": "https://developer.overheid.nl",
   "softwareType": "standalone/web",
-  "platforms":["web"],
-  "features":["Zaken API 1.4","Documenten API 1.3","Catalogi API 1.2","Besluiten API 1.1","Autorisaties API 1.0","Catalogi beheer","Autorisatie beheer"]
+  "platforms": [
+    "web"
+  ],
+  "features": [
+    "Zaken API 1.4",
+    "Documenten API 1.3",
+    "Catalogi API 1.2",
+    "Besluiten API 1.1",
+    "Autorisaties API 1.0",
+    "Catalogi beheer",
+    "Autorisatie beheer"
+  ]
 }

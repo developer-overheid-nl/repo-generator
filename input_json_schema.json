@@ -2,11 +2,16 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://raw.githubusercontent.com/developer-overheid-nl/repository-template/refs/heads/main/parameters.json",
   "definitions": {
-    "projectTitel": {
+    "name": {
       "description": "This key contains the name of the software. It contains the (short) public name of the product, which can be localised in the specific localisation section. It should be the name most people usually refer to the software. In case the software has both an internal \"code\" name and a commercial name, use the commercial name.",
       "type": "string"
     },
-    "projectBeschrijving": {
+    "shortDescription": {
+      "description": "",
+      "type": "string"
+    },
+    "longDescription": {
+      "description": "",
       "type": "string"
     },
     "developmentStatus": {
@@ -18,7 +23,7 @@
         "obsolete"
       ]
     },
-    "onderhoud": {
+    "maintenance": {
       "string": {
         "description": "This key describes how the software is currently maintained.",
         "enum": [
@@ -29,8 +34,12 @@
         ]
       }
     },
-    "contacten": {
+    "contacts": {
       "type": "array"
+    },
+    "mainCopyrightOwner": {
+      "description": "",
+      "type": "string"
     },
     "opdrachtgever": {
       "type": "string"
@@ -41,7 +50,7 @@
     "issueLink": {
       "type": "string"
     },
-    "gitUrl": {
+    "url": {
       "type": "string"
     },
     "softwareType": {
@@ -78,15 +87,16 @@
   },
   "additionalProperties": true,
   "required": [
-    "projectTitel",
-    "korteBeschrijving",
-    "langeBeschrijving",
+    "name",
+    "shortDescription",
+    "longDescription",
     "developmentStatus",
-    "contacten",
-    "opdrachtgever",
+    "maintenance",
+    "contacts",
+    "mainCopyrightOwner",
     "securityEmail",
     "issueLink",
-    "gitUrl",
+    "url",
     "softwareType",
     "platforms",
     "features"
