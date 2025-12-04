@@ -26,12 +26,7 @@
     "web"
   ],
   "features": [
-    "Zaken API 1.4",
-    "Documenten API 1.3",
-    "Catalogi API 1.2",
-    "Besluiten API 1.1",
-    "Autorisaties API 1.0",
-    "Catalogi beheer",
-    "Autorisatie beheer"
+    "Kennisbank",
+    "Blog"
   ]
 }
