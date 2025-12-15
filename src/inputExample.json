@@ -8,12 +8,14 @@
     {
       "name": "Dimitri van Hees",
       "email": "d.vanhees@geonovum.nl",
-      "affiliation": "Geonovum"
+      "affiliation": "Geonovum",
+      "telephone":"0612345678"
     },
     {
       "name": "Tom Ootes",
       "email": "t.ootes@geonovum.nl",
-      "affiliation": "Geonovum"
+      "affiliation": "Geonovum",
+      "telephone":"0612345678"
     }
   ],
   "mainCopyrightOwner": "Ministerie van Binnenlandse Zaken en Koninkrijksrelaties",
