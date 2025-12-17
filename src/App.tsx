@@ -33,7 +33,7 @@ const App: FC<Props> = ({ spec }) => {
           </h1>
         </div>
         <div className="flex items-center">
-          <TemplateSelector setGitTemplate={setGitTemplate} className='mr-2' />
+          <TemplateSelector setGitTemplate={setGitTemplate} className='mr-4' />
           <a href="https://github.com/developer-overheid-nl/repo-docs-generator" target="_blank">
             <GitHubIcon />
           </a>
