@@ -29,7 +29,7 @@ const App: FC<Props> = ({ spec }) => {
       <header className="flex justify-between items-center px-4 py-2 bg-slate-700 text-white" style={headerStyle}>
         <div>
           <h1 className="text-lg font-medium">
-            <Link to="/">Repository Generator 2000</Link>
+            <Link to="/">Repository Docs Generator 2000</Link>
           </h1>
         </div>
         <div className="flex items-center">
