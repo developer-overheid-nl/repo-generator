@@ -1,10 +1,10 @@
 import type { RulesetDefinition } from '@stoplight/spectral-core';
 import { schema } from '@stoplight/spectral-functions';
 
-export const GEN_URI = 'https://developer-overheid-nl.github.io/repo-generator';
+export const GEN_URI = 'https://developer-overheid-nl.github.io/repo-docs-generator';
 
 const generatorSyntax: RulesetDefinition = {
-  documentationUrl: 'https://developer-overheid-nl.github.io/repo-generator',
+  documentationUrl: 'https://developer-overheid-nl.github.io/repo-docs-generator',
   description: 'Repository generator syntax',
   rules: {
     'title-required': {

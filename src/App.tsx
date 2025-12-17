@@ -34,7 +34,7 @@ const App: FC<Props> = ({ spec }) => {
         </div>
         <div className="flex items-center">
           <TemplateSelector setGitTemplate={setGitTemplate} className='mr-2' />
-          <a href="https://github.com/developer-overheid-nl/repo-generator" target="_blank">
+          <a href="https://github.com/developer-overheid-nl/repo-docs-generator" target="_blank">
             <GitHubIcon />
           </a>
         </div>

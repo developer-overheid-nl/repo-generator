@@ -4,7 +4,7 @@ import { defineConfig } from 'vite';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/repo-generator/',
+  base: '/repo-docs-generator/',
   build: {
     outDir: 'docs',
   },
