@@ -21,7 +21,7 @@ const App: FC<Props> = ({ spec }) => {
   };
 
   const appStyle = {
-    background: "#dce3ea"
+    background: "#e2e8f0"
   }
 
   return (
